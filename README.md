@@ -5,6 +5,7 @@ This repo is jpaek's implementation of the Capstone Mobile Flashcard project fro
 # Dependencies
 * Node.js: v14.7.0
 * Yarn: 1.22.4
+* Expo Client is installed on your iOS device
 
 
 ## Project Setup
