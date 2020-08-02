@@ -5,6 +5,11 @@ import { white, purple, gray, green } from '../utils/colors'
 import { useNavigationParam } from '@react-navigation/native';
 import TextButton from './TextButton'
 import { startQuiz } from '../actions/index'
+import {
+    getDailyReminderValue,
+    clearLocalNotification,
+    setLocalNotification
+} from '../utils/helpers'
 
 
 
@@ -14,6 +19,8 @@ class Deck extends Component {
         const { dispatch, id, questions, navigation } = this.props
 
         dispatch(startQuiz({total: questions.length, deckId: id}))
+
+        clearLocalNotification().then(setLocalNotification)
 
         navigation.navigate('Question', {
             id: id,

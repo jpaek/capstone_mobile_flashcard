@@ -13,24 +13,30 @@ import Deck from './components/Deck'
 import NewCard from './components/NewCard'
 import Question from './components/Question'
 import QuizSummary from './components/QuizSummary'
+import { setLocalNotification } from './utils/helpers'
 
 const Stack = createStackNavigator()
 
-export default function App() {
-  return (
-    <Provider store={createStore(reducer)}>
-        <NavigationContainer style={styles.container}>
-            <Stack.Navigator initalRouteName="Decks">
-                <Stack.Screen name="Decks" component={DeckList} />
-                <Stack.Screen name="New Deck" component={NewDeck} />
-                <Stack.Screen name="Deck" component={Deck} />
-                <Stack.Screen name="New Card" component={NewCard} />
-                <Stack.Screen name="Question" component={Question} />
-                <Stack.Screen name="Quiz Summary" component={QuizSummary} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    </Provider>
-  );
+export default class App extends React.Component {
+  componentDidMount() {
+      setLocalNotification()
+  }
+  render() {
+      return (
+        <Provider store={createStore(reducer)}>
+            <NavigationContainer style={styles.container}>
+                <Stack.Navigator initalRouteName="Decks">
+                    <Stack.Screen name="Decks" component={DeckList} />
+                    <Stack.Screen name="New Deck" component={NewDeck} />
+                    <Stack.Screen name="Deck" component={Deck} />
+                    <Stack.Screen name="New Card" component={NewCard} />
+                    <Stack.Screen name="Question" component={Question} />
+                    <Stack.Screen name="Quiz Summary" component={QuizSummary} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </Provider>
+      )
+  }
 }
 
 const styles = StyleSheet.create({
