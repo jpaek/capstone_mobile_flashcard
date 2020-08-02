@@ -31,7 +31,7 @@ class Question extends Component {
             <View style={styles.container}>
                 <Text style={{alignSelf: 'flex-start'}}>{questionId + 1}/{this.props.total}</Text>
                 <View style={styles.header}>
-                    <Text style={styles.title}>{card.question}</Text>
+                    <Text style={styles.title}>{showAnswer ? card.answer : card.question}</Text>
                     <TouchableOpacity onPress={() => {
                         this.props.navigation.navigate('Question', {
                             id: this.props.id,
@@ -39,7 +39,7 @@ class Question extends Component {
                             questionId: questionId
                         })
                     }}>
-                        <Text style={styles.answer}>Show {showAnswer ? "Answer" : "Question"}</Text>
+                        <Text style={styles.answer}>Show {showAnswer ? "Question" : "Answer"}</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.buttons}>
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
 function mapStateToProps (state, ownProps) {
 
   const { id, questionId, showAnswer } = ownProps.route.params
+  console.log("showAnswer", showAnswer)
   return {
       ...state,
       questionId: questionId,
