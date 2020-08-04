@@ -3,7 +3,7 @@ import { View, StyleSheet, AsyncStorage } from 'react-native'
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { red, orange, blue, lightPurp, pink, white } from './colors'
 import { Notifications } from 'expo'
-import { Permissions } from 'expo-permissions'
+import * as Permissions from 'expo-permissions';
 
 const NOTIFICATION_KEY = 'UdaciMobileFlashCard:notifications'
 

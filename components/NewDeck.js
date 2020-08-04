@@ -25,7 +25,9 @@ class NewDeck extends Component {
             }
         }))
 
-        this.props.navigation.navigate('Decks')
+        this.props.navigation.navigate('Deck', {
+            id: title
+        })
     }
     render() {
         return (

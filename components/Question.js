@@ -21,7 +21,8 @@ class Question extends Component {
         else {
             navigation.navigate('Question', {
                 id: id,
-                questionId: questionId + 1
+                questionId: questionId + 1,
+                showAnswer: false,
             })
         }
     }

@@ -4,10 +4,18 @@ import { connect } from 'react-redux'
 import { white, green, red } from '../utils/colors'
 import TextButton from './TextButton'
 import { startQuiz } from '../actions/index'
+import {
+    getDailyReminderValue,
+    clearLocalNotification,
+    setLocalNotification
+} from '../utils/helpers'
 
 
 
 class Question extends Component {
+    componentDidMount() {
+        clearLocalNotification().then(setLocalNotification)
+    }
     restart = () => {
         const { dispatch, id, questions, navigation } = this.props
 
